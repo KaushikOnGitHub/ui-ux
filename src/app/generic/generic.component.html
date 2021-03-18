@@ -1,0 +1,109 @@
+<form [formGroup]="generic">
+
+  <h1 class="font-italic">Generic Operator</h1>
+  <div class="container-fluid" *ngIf='generic.controls.itemRows!=null'>
+  <div *ngFor="let itemRows of generic.controls.itemRows.controls; let i=index">
+  <table class="table">
+  <tbody>
+
+    <div>
+      <thead class="row">&nbsp;&nbsp;&nbsp;
+        <th class="col-md-3">Variables</th>
+        <th class="col-md-3">Operators</th>
+        <th class="col-md-3">Action</th>
+      </thead>
+     </div>
+
+
+
+<div class="row" >
+  <div class="col-md-3 form-group" formControlName="variables">
+  <select class="color" (change)="selectChangeHandler($event)">
+    <option value="">--variables--</option>
+    <option value="X">x</option>
+    <option value="Y">y</option>
+    <option value="Z">z</option>
+  </select>
+  </div>
+
+
+  <div class="col-md-3 form-group">
+   <div formControlName="operators">
+    <select class="color" (change)="selectChangeOperators ($event)">
+      <option value="">--Operators--</option>
+      <option value="plus">+</option>
+      <option value="minus">-</option>
+      <option value="multiplication">*</option>
+    </select>
+    </div>
+    </div>
+
+    <!-- <div class="col-md-3">
+      <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">--Actions--
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+      </div> -->
+
+  <div class="col-md-3 form-group" style="text-align: right;">
+  <button type="button" (click)="addNewRow()" class="btn btn-primary">Add More</button>
+  </div>
+</div>
+
+  <div class="col-sm-3 form-group">
+    <button type="button" (click)="deleteRow(i)" class="btn btn danger">delete</button>
+  </div>
+
+  </table>
+  </div>
+  </div>
+</form>
+
+
+
+<!-- step-2 generic Operators -->
+
+
+<div class="container-fluid">
+
+
+  <table class= "table">
+
+    <tbody>
+
+    <div>
+     <thead class="row">&nbsp;&nbsp;&nbsp;
+       <th class="col-md-3">Variables</th>
+       <th class="col-md-3">Operators</th>
+       <th class="col-md-3">Action</th>
+     </thead>
+    </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+        <b>{{selectedVariables}}</b>
+        </div>
+
+        <div class="col-lg-4">
+          <b>{{selectedOperators}}</b>
+          </div>
+
+
+        </div>
+
+
+    </tbody>
+
+</table>
+</div>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;
+
+
+

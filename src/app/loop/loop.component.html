@@ -1,0 +1,110 @@
+<!-- step-1 Looping Operators -->
+
+<form [formGroup]="looping">
+  <h1 class="font-italic">Looping Operator</h1>
+    <div class="container-fluid" *ngIf='looping.controls.itemRows!=null'>
+    <div *ngFor="let itemRows of looping.controls.itemRows.controls; let i=index">
+  <table class="table">
+  <tbody>
+
+    <div>
+      <thead class="row">&nbsp;&nbsp;&nbsp;
+        <th class="col-md-3">Loop Types</th>
+        <th class="col-md-3">Variables</th>
+        <th class="col-md-3">Operators</th>
+      </thead>
+     </div>
+
+<div class="row">
+  <div class="col-md-3 form-group" formControlName="looptypes">
+  <select class="color" (change)="selectChangeHandler ($event)">
+    <option value="">--Loop Types--</option>
+    <option value="do">do</option>
+    <option value="for">for</option>
+    <option value="while">while</option>
+  </select>
+  </div>
+
+  <div class="col-md-3 form-group">
+    <div formControlName="variables">
+    <select class="color" (change)="selectChangeVariables ($event)">
+      <option value="">--Variables--</option>
+      <option value="X">x</option>
+      <option value="Y">y</option>
+      <option value="Z">z</option>
+    </select>
+    </div>
+    </div>
+
+    <div class="col-md-3 form-group">
+      <div formControlName="operators">
+      <select class="color" (change)="selectChangeOperators ($event)">
+        <option value="">--Operators--</option>
+        <option value="plus">+</option>
+        <option value="minus">-</option>
+        <option value="multiplication">*</option>
+      </select>
+      </div>
+    </div>
+
+</div>
+
+<div class="col-sm-3 form-group">
+  <button type="button" (click)="deleteRow(i)" class="btn btn danger">delete</button>
+</div>
+
+<div class="col-sm-3 form-group" style="text-align: right;">
+  <button type="button" (click)="addNewRow()" class="btn btn-primary">Add More</button>
+</div>
+
+
+  </tbody>
+  </table>
+  </div>
+</div>
+</form>
+
+
+<!-- step-2 Looping Operators -->
+
+
+<div class="container-fluid">
+
+
+  <table class= "table">
+
+    <tbody>
+
+    <div>
+     <thead class="row">&nbsp;&nbsp;&nbsp;
+       <th class="col-md-3">Loop Types</th>
+       <th class="col-md-3">Variables</th>
+       <th class="col-md-3">Operators</th>
+     </thead>
+    </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+        <b>{{selectedCondition}}</b>
+        </div>
+
+        <div class="col-lg-4">
+          <b>{{selectedVariables}}</b>
+          </div>
+
+          <div class="col-lg-4">
+            <b>{{selectedOperators}}</b>
+            </div>
+
+
+
+        </div>
+
+
+    </tbody>
+
+</table>
+</div>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;
